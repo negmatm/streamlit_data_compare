@@ -38,7 +38,7 @@ with st.form("my_form"):
 
                 final_list.append([col1_new, col2_new])
 
-                output = pd.DataFrame(final_list, columns = ['Column1', 'Column2'])
+                output = pd.DataFrame(final_list, columns = ['Column1', 'Column2'], drop = True)
 
     # Every form must have a submit button.
     submitted = st.form_submit_button("Show difference")
