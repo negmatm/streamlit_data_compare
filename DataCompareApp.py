@@ -18,8 +18,8 @@ with st.form("my_form"):
             col2_new_list = []
 
             if len(original_row) == 3:
-                col1 = original_row.Column1.strip().lower()
-                col2 = original_row.Column2.strip().lower()
+                col1 = original_row.cur_query.strip().lower()
+                col2 = original_row.next_query.strip().lower()
                 col1_token_list = col1.split()
                 col2_token_list = col2.split()
 
