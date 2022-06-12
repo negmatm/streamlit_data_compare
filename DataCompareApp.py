@@ -41,9 +41,19 @@ with st.form("my_form"):
                 output = pd.DataFrame(final_list, columns = ['Column1', 'Column2'])
 
     # Every form must have a submit button.
-    submitted = st.form_submit_button("Output file with differences")
+    submitted = st.form_submit_button("Show difference")
 
     if submitted:
-        output.to_csv("DataCompareOutput.csv", index = False, encoding='utf-8')
-        st.warning("Output has been written to DataCompareOutput.csv")
+        # Hide dataframe index
+        # CSS to inject contained in a string
+        hide_table_row_index = """
+                    <style>
+                    tbody th {display:none}
+                    .blank {display:none}
+                    </style>
+                    """
 
+        # Inject CSS with Markdown
+        st.markdown(hide_table_row_index, unsafe_allow_html=True)
+
+        st.table(output)
